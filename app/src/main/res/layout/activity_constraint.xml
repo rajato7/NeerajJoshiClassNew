@@ -3,23 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ConstraintLayout">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/tvText1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ivImage"
+        app:layout_constraintStart_toStartOf="@+id/guidleVertical1"
+        app:layout_constraintEnd_toEndOf="@+id/guideHalf"
+        android:text="@string/helloWorld"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideHalf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Hello World"/>
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5"
+        />
 
     <TextView
+        android:id="@+id/tvText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hello"
+        app:layout_constraintEnd_toEndOf="@id/guidleVertical2"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toEndOf="@+id/tvText1"
+        app:layout_constraintTop_toBottomOf="@+id/ivImage" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvText1"
-        android:text="Hello World"/>
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="tvText1,tvText2"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintTop_toTopOf="@+id/barrier"
+        app:layout_constraintHorizontal_bias=".4"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidleHorizontal"
@@ -50,6 +79,7 @@
         app:layout_constraintGuide_percent=".9"/>
 
     <ImageView
+        android:id="@+id/ivImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_launcher_background"
@@ -77,6 +107,8 @@
         app:layout_constraintStart_toStartOf="@+id/guidleVertical1"
         app:layout_constraintEnd_toEndOf="@+id/guidleVertical2"
         />
+
+    <
 
 
 
