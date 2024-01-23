@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.o7services.neerajjoshiclass"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.o7services.neerajjoshiclass"
-        minSdk = 30
-        targetSdk = 33
+        minSdk = 29
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

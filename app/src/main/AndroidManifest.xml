@@ -13,10 +13,7 @@
         android:theme="@style/Theme.NeerajJoshiClass"
         tools:targetApi="31">
         <activity
-            android:name=".RelativeLayoutActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".GetValueActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +22,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".RelativeLayoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
             android:name=".ConstraintActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>
