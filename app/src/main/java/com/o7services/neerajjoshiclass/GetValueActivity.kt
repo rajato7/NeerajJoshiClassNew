@@ -1,5 +1,6 @@
 package com.o7services.neerajjoshiclass
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -28,6 +29,10 @@ class GetValueActivity : AppCompatActivity() {
                 etRollNo.error = "Enter Your Roll No."
             }else{
                 println("My Name: ${etName.text.toString()},My Roll No: ${etRollNo.text.toString()} ")
+                var intent = Intent(this,SecondActivity::class.java)
+                intent.putExtra("name",etName.text.toString())
+                intent.putExtra("rollNo",etRollNo.text.toString())
+                startActivity(intent)
                 tvName.text = etName.text.toString()
                 tvRollNo.text = etRollNo.text.toString()
             }
