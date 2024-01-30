@@ -7,10 +7,12 @@
     tools:context=".FragmentActivity">
 
 
-    <androidx.fragment.app.FragmentContainerView
+    <fragment
         android:id="@+id/ContainerView"
         android:layout_width="match_parent"
-        android:name="com.o7services.neerajjoshiclass.FirstFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"
         android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
