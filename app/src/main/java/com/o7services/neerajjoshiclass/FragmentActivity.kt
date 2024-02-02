@@ -16,8 +16,28 @@ class FragmentActivity : AppCompatActivity() {
         setContentView(binding.root)
         navController = findNavController(R.id.ContainerView)
 
-
-
+        binding.bottomNav.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.home -> {
+                    navController.navigate(R.id.firstFragment)
+                }
+                R.id.second -> {
+                    navController.navigate(R.id.secondFragment)
+                }
+                else -> {}
+            }
+            return@setOnItemSelectedListener true
+        }
+        navController.addOnDestinationChangedListener{_,destination,_->
+            when(destination.id){
+                R.id.firstFragment->{
+                    binding.bottomNav.menu.findItem(R.id.home).isChecked = true
+                }
+                R.id.secondFragment->{
+                    binding.bottomNav.menu.findItem(R.id.second).isChecked = true
+                }
+            }
+        }
     }
 
     override fun onStart() {
