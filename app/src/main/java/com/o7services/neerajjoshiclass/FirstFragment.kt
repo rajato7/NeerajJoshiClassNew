@@ -1,5 +1,6 @@
 package com.o7services.neerajjoshiclass
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -42,9 +43,18 @@ class FirstFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentFirstBinding.inflate(layoutInflater)
         binding.btnClick.setOnClickListener {
-            fragmentActivity.navController.navigate(R.id.secondFragment)
+           var alertDialog = AlertDialog.Builder(fragmentActivity)
+            alertDialog.setTitle("Alert Dialog")
+            alertDialog.setMessage("Are you sure to logout?")
+            alertDialog.setCancelable(false)
+            alertDialog.setPositiveButton("Yes"){_,_->
+                println("Hello AlertDialog yes")
+            }
+            alertDialog.setNegativeButton("No"){_,_->
+                println("Hello AlertDialog No")
+            }
+            alertDialog.show()
         }
-
         return binding.root
 
     }
