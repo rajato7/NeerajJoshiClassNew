@@ -43,6 +43,7 @@ class SecondFragment : Fragment() {
             fragmentActivity.navController.popBackStack()
 
         }
+
         return binding.root
     }
 

@@ -1,12 +1,16 @@
 package com.o7services.neerajjoshiclass
 
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import com.o7services.neerajjoshiclass.databinding.FragmentFirstBinding
 
@@ -54,6 +58,28 @@ class FirstFragment : Fragment() {
                 println("Hello AlertDialog No")
             }
             alertDialog.show()
+        }
+        binding.btnCustomDialog.setOnClickListener {
+            var dialog = Dialog(fragmentActivity)
+            dialog.setContentView(R.layout.custom_dialog)
+            dialog.window?.setLayout(LayoutParams.MATCH_PARENT,
+                LayoutParams.WRAP_CONTENT)
+
+            var etName = dialog.findViewById<EditText>(R.id.etName)
+            var btnSave = dialog.findViewById<Button>(R.id.btnSave)
+            etName.setText(binding.tvsetName.text.toString())
+            btnSave.setOnClickListener {
+                if(etName.text.toString().isEmpty()){
+                    etName.error = "Enter your name"
+                }else{
+                    binding.tvsetName.setText(etName.text.toString())
+                    Toast.makeText(fragmentActivity,"Save",Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+                }
+            }
+
+
+            dialog.show()
         }
         return binding.root
 
