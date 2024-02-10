@@ -41,7 +41,19 @@ class SecondFragment : Fragment() {
         binding = FragmentSecondBinding.inflate(layoutInflater)
         binding.btnSecond.setOnClickListener {
             fragmentActivity.navController.popBackStack()
+        }
+        binding.btnSave.setOnClickListener {
+            if(binding.etName.text.toString().isEmpty()){
+                binding.etName.error = resources.getString(R.string.enter_name)
+            }else if(binding.etPassword.text.toString().isEmpty()){
+                binding.etPassword.error = resources.getString(R.string.enter_password)
+            }else{
+                var bundle = Bundle()
+                bundle.putString("name",binding.etName.text.toString())
+                bundle.putString("password",binding.etPassword.text.toString())
+                fragmentActivity.navController.navigate(R.id.firstFragment,bundle)
 
+            }
         }
 
         return binding.root
