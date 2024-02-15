@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import com.o7services.neerajjoshiclass.databinding.FragmentSecondBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -23,6 +24,9 @@ class SecondFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var arrayAdapter: ArrayAdapter<String> // declare the arrayAdapter
+    var gender = arrayOf("Male","Female","Others") // create array for multiple values
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,9 +56,13 @@ class SecondFragment : Fragment() {
                 bundle.putString("name",binding.etName.text.toString())
                 bundle.putString("password",binding.etPassword.text.toString())
                 fragmentActivity.navController.navigate(R.id.firstFragment,bundle)
-
             }
         }
+
+        // intialaize the arrayAdapter
+        arrayAdapter = ArrayAdapter(fragmentActivity,android.R.layout.simple_list_item_1,gender)
+        binding.spinner.adapter = arrayAdapter // set adapter to the spinner to show the items
+
 
         return binding.root
     }

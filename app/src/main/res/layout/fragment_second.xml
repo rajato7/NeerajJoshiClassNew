@@ -36,4 +36,9 @@
         android:layout_gravity="center"
         android:text="@string/save_data"/>
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>
