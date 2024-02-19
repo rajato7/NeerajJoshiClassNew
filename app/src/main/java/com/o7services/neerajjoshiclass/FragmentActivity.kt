@@ -24,6 +24,9 @@ class FragmentActivity : AppCompatActivity() {
                 R.id.second -> {
                     navController.navigate(R.id.secondFragment)
                 }
+                R.id.listview->{
+                    navController.navigate(R.id.listViewFragment)
+                }
                 else -> {}
             }
             return@setOnItemSelectedListener true
@@ -35,6 +38,9 @@ class FragmentActivity : AppCompatActivity() {
                 }
                 R.id.secondFragment->{
                     binding.bottomNav.menu.findItem(R.id.second).isChecked = true
+                }
+                R.id.listViewFragment->{
+                    binding.bottomNav.menu.findItem(R.id.listview).isChecked = true
                 }
             }
         }

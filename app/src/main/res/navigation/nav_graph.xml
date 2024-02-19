@@ -15,4 +15,9 @@
         android:name="com.o7services.neerajjoshiclass.SecondFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second" />
+    <fragment
+        android:id="@+id/listViewFragment"
+        android:name="com.o7services.neerajjoshiclass.ListViewFragment"
+        android:label="fragment_list_view"
+        tools:layout="@layout/fragment_list_view" />
 </navigation>

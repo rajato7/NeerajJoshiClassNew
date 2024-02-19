@@ -9,4 +9,9 @@
         android:title="@string/second"
         android:icon="@drawable/ic_home"/>
 
+    <item
+        android:id="@+id/listview"
+        android:title="@string/listview"
+        android:icon="@drawable/ic_home"/>
+
 </menu>
