@@ -62,8 +62,27 @@ class ListViewFragment : Fragment() {
                 }
             }
            dialog.show()
-
-
+        }
+        binding.lvList.setOnItemClickListener { parent, view, position, id ->
+           var dialog = Dialog(requireActivity())
+            dialog.setContentView(R.layout.custom_dialog)
+            var name = dialog.findViewById<EditText>(R.id.etName)
+            var save = dialog.findViewById<Button>(R.id.btnSave)
+            save.setOnClickListener {
+                if(name.text.toString().isEmpty()){
+                    name.error = resources.getString(R.string.enter_name)
+                }else{
+                    names.set(position,name.text.toString())
+                    dialog.dismiss()
+                    arrayAdapter.notifyDataSetChanged()
+                }
+            }
+            dialog.show()
+        }
+        binding.lvList.setOnItemLongClickListener { parent, view, position, id ->
+            names.removeAt(position)
+            arrayAdapter.notifyDataSetChanged()
+            return@setOnItemLongClickListener true
         }
 
 
